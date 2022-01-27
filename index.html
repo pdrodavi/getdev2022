@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GET Dev 2022</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body class="text-center">
+
+    <div class="container">
+
+        <form action="https://docs.google.com/forms/d/e/1FAIpQLSfu1ZmIXhkEyMBJlnpWHghMYXscQG-hRC9u4iHmJZWkfdnotA/formResponse"
+      target="_self"
+      id="bootstrapForm"
+      method="POST">
+
+
+    <!-- Field type: "short" id: "128553945" -->
+    <div class="mb-3">
+        <fieldset>
+            <legend for="128553945">Nome</legend>
+            <div class="form-group">
+                <input id="333483527" type="text" name="entry.333483527" class="form-control" required>
+            </div>
+        </fieldset>
+    </div>
+    
+
+    <!-- Field type: "short" id: "886254399" -->
+    <div class="mb-3">
+        <fieldset>
+            <legend for="886254399">Sobrenome</legend>
+            <div class="form-group">
+                <input id="1744825944" type="text" name="entry.1744825944" class="form-control" required>
+            </div>
+        </fieldset>
+    </div>
+    
+
+    <!-- Field type: "short" id: "2090538173" -->
+    <div class="mb-3">
+        <fieldset>
+            <legend for="2090538173">E-mail</legend>
+            <div class="form-group">
+                <input id="2126037679" type="text" name="entry.2126037679" class="form-control" required>
+            </div>
+        </fieldset>
+    </div>
+
+    <!-- Field type: "short" id: "1864330838" -->
+    <div class="mb-3">
+        <fieldset>
+            <legend for="1864330838">Celular</legend>
+            <div class="form-group">
+                <input id="1584911570" type="text" name="entry.1584911570" class="form-control" required>
+            </div>
+        </fieldset>
+    </div>
+    
+    <!-- Field type: "short" id: "495383577" -->
+    <div class="mb-3">
+        <fieldset>
+            <legend for="495383577">URL Perfil Linkedin</legend>
+            <div class="form-group">
+                <input id="69448683" type="text" name="entry.69448683" class="form-control" required>
+            </div>
+        </fieldset>
+    </div>
+    
+    <!-- Field type: "short" id: "2090526318" -->
+    <div class="mb-3">
+        <fieldset>
+            <legend for="2090526318">URL Currículo</legend>
+            <div class="form-group">
+                <input id="1139132525" type="text" name="entry.1139132525" class="form-control" required>
+            </div>
+        </fieldset>
+    </div>
+    
+
+    <input type="hidden" name="fvv" value="1">
+    <input type="hidden" name="fbzx" value="6019405763452373418">
+    <!--
+        CAVEAT: In multipages (multisection) forms, *pageHistory* field tells to google what sections we've currently completed.
+        This usually starts as "0" for the first page, then "0,1" in the second page... up to "0,1,2..N" in n-th page.
+        Keep this in mind if you plan to change this code to recreate any sort of multipage-feature in your exported form.
+        We're setting this to the total number of pages in this form because we're sending all fields from all the section together.
+    -->
+    <input type="hidden" name="pageHistory" value="0">
+
+    <input class="btn btn-primary" type="submit" value="Submit">
+</form>
+
+    </div>
+    
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js" integrity="sha256-2Pjr1OlpZMY6qesJM68t2v39t+lMLvxwpa8QlRjJroA=" crossorigin="anonymous"></script>
+
+<script>
+    $('#bootstrapForm').submit(function (event) {
+    event.preventDefault()
+    var extraData = {}
+    $('#bootstrapForm').ajaxSubmit({
+        data: extraData,
+        dataType: 'jsonp',  // This won't really work. It's just to use a GET instead of a POST to allow cookies from different domain.
+        error: function () {
+            // Submit of form should be successful but JSONP callback will fail because Google Forms
+            // does not support it, so this is handled as a failure.
+            alert('Form Submitted. Thanks.')
+            // You can also redirect the user to a custom thank-you page:
+            // window.location = 'http://www.mydomain.com/thankyoupage.html'
+        }
+    })
+})
+</script>
+
+</html>
